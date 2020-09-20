@@ -43,33 +43,11 @@ article{
 .brt{
     font-size: 25px;
     width: 300px;
-    float: left;
-    margin-right: 20px;
 }
 .brt img{
     width: 300px;
     height: 200px;
 }
-.brt2{
-    font-size: 25px;
-    width: 300px;
-    float: left;
-    margin-right: 20px;
-}
-.brt2 img{
-    width: 300px;
-    height: 200px;
-}
-.brt3{
-    font-size: 25px;
-    width: 300px;
-    float: left;
-}
-.brt3 img{
-    width: 300px;
-    height: 200px;
-}
-
 a, a:link{
     text-decoration: none;
     color: royalblue;
