@@ -42,6 +42,17 @@
                                 <label class="lastlabel">Last name</label>
                                 <input class="form-control" type="text" name="last_name" placeholder="Last Name">
                             </div>
+                            
+                            <div class="form-group">
+                                <label class="lastlabel">Username</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text" id="basic-addon1">@</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                  </div>
+                            </div>
+                            
                             <div class="form-group">
                                 <label for="InputEmail1"> Email Address</label>
                                 <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter Email">
@@ -64,7 +75,48 @@
                                     <span class="lbl">Ingat Saya</span>
                                 </label>
                             </div>
-                            <p>By creating account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                            <p>By creating account you agree to our <a href="#" style="color:dodgerblue" data-toggle="modal" data-target="#exampleModal">Terms & Privacy</a>.</p>
+                            
+                            <!--Modal-->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">T & C</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                    <div class="modal-body">
+                                        Kebijakan Data Pribadi berikut menjelaskan bagaimana Kami mengumpulkan, menyimpan, menggunakan, mengungkapkan, dan memberikan Data Pribadi Anda yang dapat diidentifikasi dan diperoleh melalui media daring Kami (Aplikasi, Situs web, dll) dan media luring kami (program, toko atau hotel milik Kami, dll).
+
+                                        Kebijakan Data Pribadi ini dimasukkan sebagai bagian dari Ketentuan Penggunaan Kami.
+                                        
+                                        Kebijakan Data Pribadi mencakup hal-hal berikut: <br>
+                                        
+                                        1. Definisi <br>
+                                        2. Ruang Lingkup <br>
+                                        3. Informasi Yang Kami Kumpulkan <br>
+                                        4. Penggunaan Informasi Yang Kami Kumpulkan <br>
+                                        5. Pengelolaan Informasi Anda <br>
+                                        6. Keamanan <br>
+                                        7. Perubahan Kebijakan Data Pribadi <br>
+                                        8. Informasi Teknis dan Peraturan <br>
+                                        9. Ketentuan Lain-Lain <br>
+                                        10. Pernyataan dan Persetujuan <br>
+                                        11. Pencabutan Persetujan dan Penghapusan <br>
+                                        12. Pembatalan Surel Berlangganan <br>
+                                        13. Hubungi Kami <br>
+                                    </div>
+                    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Disaggree</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Agree</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <button type="submit" class="btn btn-sm btn-outline-dark"> 
                                 <a href="Register Thankyou.html"> Sign Up </a> 
                             </button>
