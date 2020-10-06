@@ -33,7 +33,7 @@
                     </button><br>
                 
                     <div class="main">
-                        <form method="POST" class="form-container">
+                        <form method="POST" class="form-container" name="form1">
                             <div class="form-group">
                                 <label for="InputFirstName">First name</label>
                                 <input class="form-control" type="text" name="first_name" placeholder="First Name">
@@ -116,7 +116,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-sm btn-dark"> 
+                            <button type="button" class="btn btn-sm btn-dark" onclick="check()"> 
                                 Sign Up 
                             </button>
                         </form>
@@ -142,5 +142,19 @@
             }
         </style>
         
+        <script>
+            function check(){
+                var cek = document.getElementsByTagName("Input")
+
+                for(var i=0;i<cek.length;i++){
+                    if(cek[i].value==""){
+                        console.log(i)
+                        alert("Mohon isi semuanya")
+                        break;
+                    }
+                }
+            }
+        </script>
+
     </body>
 </html>
