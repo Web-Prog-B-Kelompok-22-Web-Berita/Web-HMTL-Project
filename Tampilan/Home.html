@@ -51,11 +51,14 @@
 
     .navbar a:hover,
     .nav-item:hover {
-      background-color: red;
+      background-color: grey;
     }
 
     .dropdown-menu a:hover {
       background-color: grey;
+    }
+    .dropdown:hover>.dropdown-menu{
+      display: block;
     }
   </style>
 
@@ -70,7 +73,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            Luar Negeri
+            Hype
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Seleb</a>
@@ -81,24 +84,18 @@
         <li class="nav-item dropdown">
           <a class="nav-link active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            Dalam Negeri
+            Food
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Martin Tampan</a>
-            <a class="dropdown-item" href="#">Film</a>
-            <a class="dropdown-item" href="#">Musik</a>
+            <a class="dropdown-item" href="#">Resep</a>
+            <a class="dropdown-item" href="#">Food News</a>
+            <a class="dropdown-item" href="#">Tips kuliner</a>
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Olahraga
+          <a class="nav-link active" href="" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Health
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">SepakBola</a>
-            <a class="dropdown-item" href="#">Basket</a>
-            <a class="dropdown-item" href="#">Bulu Tangkis</a>
-            <a class="dropdown-item" href="#">Tennis</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -117,7 +114,6 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Hunian</a>
             <a class="dropdown-item" href="#">Konsultasi</a>
-            <a class="dropdown-item" href="#">Tips</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -126,7 +122,6 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Sekolah</a>
-            <a class="dropdown-item" href="#">Kuliah BSI Aja</a>
             <a class="dropdown-item" href="#">Beasiswa</a>
         </li>
       </ul>
@@ -169,6 +164,7 @@
     <div class="container">
       <h1 class="txtcolor">Headline</h1>
       <hr class="txtcolor" size="300px" noshade="">
+      <div class="container">
       <div class="row" style="padding: 10pt">
         <div class="col-xs-6">
           <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -218,8 +214,8 @@
             </a>
           </div>
           <div class="row row-cols-4" style="margin:auto; background-color: black; ">
-            <div class="col-xs-6" type="button" id="myBtn1">
-              <a class="cols-xs-6" >
+            <div class="col-xs-6" type="button">
+              <a class="cols-xs-6" id="myBtn1">
                 <img src="src/kpu.jpg" style="max-width: 100%;">
               </a>
               <a class="headline txtcolor">
@@ -227,24 +223,24 @@
               </a>
             </div>
 
-            <div class="col-xs-6" type="button" id="myBtn2">
-              <a class="">
+            <div class="col-xs-6" type="button">
+              <a class="" id="myBtn2">
                 <img src="src/corona.jpg" style="max-width: 100%;">
               </a>
               <a class="headline txtcolor">
                 UPDATE: Bertambah 3.891, Kini Ada 236.519 Kasus Covid-19 di Indonesia
               </a>
             </div>
-            <div class="col-xs-6" type="button" id="myBtn3">
-              <a class="" >
+            <div class="col-xs-6" type="button">
+              <a class="" id="myBtn3">
                 <img src="src/tambahan medis.jpg" style="max-width: 100%;">
               </a>
-              <a class="headline txtcolor" >
+              <a class="headline txtcolor">
                 Tunggu Tambahan Tenaga Medis, Depok Rujuk Pasien Covid-19 ke Bogor dan Bekasi
               </a>
             </div>
-            <div class="col-xs-6" type="button" id="myBtn4">
-              <a class="headline txtcolor" >
+            <div class="col-xs-6" type="button">
+              <a class="headline txtcolor" id="myBtn4">
                 <img src="src/bambang.jpg" style="max-width: 100%;">
               </a>
               <a class="headline txtcolor" >
@@ -254,7 +250,7 @@
           </div>
         </div>
       </div>
-
+  </div>
       <br>
      
       <h1 class="txtcolor">Sorotan</h1>
