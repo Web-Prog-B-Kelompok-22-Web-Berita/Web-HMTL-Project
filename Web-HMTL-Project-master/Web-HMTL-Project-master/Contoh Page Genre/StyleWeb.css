@@ -1,0 +1,121 @@
+*{
+    margin:0;
+    padding:0;
+    }
+   .Webbody{
+       background: #cccccc;
+      background-position:center;
+     background-size:cover;
+     font-family:sans-serif;
+     margin-top: 2rem;
+     margin-left: 5rem;
+     margin-bottom: 3rem;
+      }
+      .card {
+          float:left;
+          background: #b9e9ff;
+      border-radius: 8px;
+        box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
+        height: 200px;
+        margin-bottom: 4rem;
+        margin-top: -2rem;
+        width: 550px;
+        position: relative;
+        max-height: 200px;
+        max-width: 550px;
+}
+ .card2 {
+           background: #b9e9ff;
+      border-radius: 8px;
+        box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
+        height: 200px;
+        float: right;
+        margin-top: -2rem;
+        margin-right: 5rem;
+        margin-bottom:4rem;
+        width: 550px;
+        position: relative;
+        max-height: 200px;
+        max-width: 550px;
+}
+label{
+   position: initial;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 40px ;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    
+}
+hr{
+    margin-top: 1rem;
+}
+hr.ha{
+    width: 70%;
+    height: 10px;
+    color: black;
+    background: black;
+    border-radius: 16px;
+    margin-bottom: 4rem;
+    
+}
+hr.hb{
+    width: 70%;
+    height: 10px;
+    color: black;
+    background: black;
+    border-radius: 16px;
+        margin-bottom: 4rem;
+}
+img.imglogo{
+    margin-left: 1rem;
+    position: relative;
+    height: 64px;
+    width: 128px;
+    
+}
+img.imglogo2{
+    margin-left: 1rem;
+    position: relative;
+    height: 64px;
+    width: 64px;
+}
+img.cardima{
+    position: relative;
+                background-color: black;
+                background: white;
+box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
+margin: 2rem 1rem;
+        height: 128px;
+        width: 256px;
+        border-radius: 8px;
+}
+c.C{
+        position: absolute;
+                background: transparent;
+        height: 180px;
+        width: 250px;
+        border-radius: 8px;
+        margin: 2rem 0;
+}
+.V{
+            font-size: 27px;
+            font-family: sans-serif;
+        text-decoration: none;
+        font-weight: bold;
+}
+.card:hover{
+    background: #94deff;
+    transition: 0.2s;
+    }
+    .card2:hover{
+    background: #94deff;
+    transition: 0.2s;
+    }
+    .V:hover{
+        color: white;
+        transition: 0.5s;
+    }
