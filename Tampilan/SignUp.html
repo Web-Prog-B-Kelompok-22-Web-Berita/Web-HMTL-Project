@@ -33,49 +33,86 @@
                     </button><br>
                 
                     <div class="main">
-                        <form method="POST" class="form-container" name="form1">
-                            <div class="form-group">
-                                <label for="InputFirstName">First name</label>
-                                <input class="form-control" type="text" name="first_name" placeholder="First Name">
-                            </div>
-                            <div class="form-group">
-                                <label class="lastlabel">Last name</label>
-                                <input class="form-control" type="text" name="last_name" placeholder="Last Name">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="lastlabel">Username</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                      <span class="input-group-text" id="basic-addon1">@</span>
+                        <form class="form-container needs-validation" novalidate name="form1">
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="customvalidate1">First name</label>
+                                    <input type="text" class="form-control" type="text" name="first_name" id="validationCustom1" placeholder="First Name" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                                  </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a name.
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="customvalidate2">Last name</label>
+                                    <input type="text" class="form-control" type="text" name="last_name" id="validationCustom2" placeholder="Last Name" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide a name.
+                                    </div>
+                                </div>
+                            </div>
+                                
+
+                            <div class="form-group">
+                                <label for="customvalidate3">Username</label>
+                                <div class="input-group input-group-sm">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">@</span>
+                                    </div>
+                                    <input type="text" class="form-control fix-rounded-right" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please provide a username.
+                                </div>
+                                
                             </div>
                             
                             <div class="form-group">
-                                <label for="InputEmail1"> Email Address</label>
+                                <label for="customvalidate4"> Email Address</label>
                                 <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter Email">
+
+                                <div class="invalid-feedback">
+                                    Please provide an email address.
+                                </div>
                             </div>
+
                             <div class="form-group">
-                                <label for="InputPassword1">Password</label>
+                                <label for="customvalidate5">Password</label>
                                 <input type="password" class="form-control" id="Input Password1" placeholder="Password" value>
+
+                                <div class="invalid-feedback">
+                                    Please provide a password.
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="InputPassword1">Re-type Password</label>
+                                <label for="customvalidate6">Re-type Password</label>
                                 <input type="password" class="form-control" id="Input Password1" placeholder="Password" value>
+
+                                <div class="invalid-feedback">
+                                    Please re-type your password.
+                                </div>
                             </div>
+                            
                             <div class="form-group">
-                                <label for="InputNumbers"> Phone </label>
-                                <input type="numbers" class="form-control" id="Input Phone Num" placeholder="Phone Numbers">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                  <label class="form-check-label" for="invalidCheck">
+                                    Agree to terms and conditions
+                                  </label>
+                                  <div class="invalid-feedback">
+                                    You must agree before submitting.
+                                  </div>
+                                </div>
                             </div>
-                            <div>
-                                <label class="inline pull-right">
-                                    <input class="ace" name="remember_me" type="checkbox" value="1">
-                                    <span class="lbl">Ingat Saya</span>
-                                </label>
-                            </div>
-                            <p>By creating account you agree to our <a href="#" style="color:dodgerblue" data-toggle="modal" data-target="#exampleModal">Terms & Privacy</a>.</p>
+                            <p>By creating account you agree to our <a href="#" style="color:dodgerblue" data-toggle="modal" data-target="#exampleModal">Terms & Conditions</a>.</p>
                             
                             <!--Modal-->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -110,13 +147,12 @@
                                     </div>
                     
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Disaggree</button>
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Agree</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                     </div>
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-sm btn-dark" onclick="check()"> 
+                            <button type="submit" class="btn btn-sm btn-dark" onclick="check()"> 
                                 Sign Up 
                             </button>
                         </form>
@@ -127,6 +163,11 @@
         </section>
 
         <style>
+            .fix-rounded-right {
+                border-top-right-radius: .2rem !important;
+                border-bottom-right-radius: .2rem !important;
+            }
+
             body{
             background: #383a3d;	
             }
@@ -143,17 +184,26 @@
         </style>
         
         <script>
-            function check(){
-                var cek = document.getElementsByTagName("Input")
-
-                for(var i=0;i<cek.length;i++){
-                    if(cek[i].value==""){
-                        console.log(i)
-                        alert("Mohon isi semuanya")
-                        break;
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+              'use strict';
+              window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
                     }
-                }
-            }
+                    form.classList.add('was-validated');
+                  }, false);
+                });
+              }, false);
+            })();
+
+            
         </script>
 
     </body>
