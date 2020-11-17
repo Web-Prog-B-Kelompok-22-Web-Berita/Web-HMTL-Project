@@ -4,6 +4,8 @@
   "description": "Masuk sini aja. Project folder kemarin sdh pindah ke sini semua termasuk source2 nya.",
   "main": "index.js",
   "scripts": {
+    "express": "express newapp",
+    "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
