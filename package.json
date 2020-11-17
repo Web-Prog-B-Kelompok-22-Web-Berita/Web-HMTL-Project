@@ -1,0 +1,26 @@
+{
+  "name": "web-hmtl-project",
+  "version": "1.0.0",
+  "description": "Masuk sini aja. Project folder kemarin sdh pindah ke sini semua termasuk source2 nya.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Web-Prog-B-Kelompok-22-Web-Berita/Web-HMTL-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Web-Prog-B-Kelompok-22-Web-Berita/Web-HMTL-Project/issues"
+  },
+  "homepage": "https://github.com/Web-Prog-B-Kelompok-22-Web-Berita/Web-HMTL-Project#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "nodemon": "^2.0.6"
+  }
+}
