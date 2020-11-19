@@ -2,8 +2,15 @@ const bodyParser = require('body-parser');
 const { response } = require('express');
 const express = require('express');
 const { request } = require('http');
+const expressLayouts = require('express-ejs-layouts');
 const authRouter = require('./routes/auth');
-const expressLayouts = require('express-ejs-layouts')
+const edukasiRouter = require('./routers/edukasi');
+const foodRouter = require('./routers/food');
+const healthRouter = require('./routers/health');
+const hypeRouter = require('./routers/hype');
+const keuanganRouter = require('./routers/keuangan');
+
+
 
 const app = express();
 app.use(bodyParser.json());
@@ -13,7 +20,13 @@ app.set('layout', './layouts/layout');
 app.set('view engine','ejs');
 
 app.use(express.static(__dirname + '/public'));
-app.use('/auth',express.static(__dirname + '/public'));
+app.use('/edukasi',express.static(__dirname + '/public'));
+app.use('/food',express.static(__dirname + '/public'));
+app.use('/health',express.static(__dirname + '/public'));
+app.use('/hype',express.static(__dirname + '/public'));
+app.use('/keuangan',express.static(__dirname + '/public'));
+
+
 app.use(bodyParser.urlencoded());
 app.use(express.static('pages'));
 
@@ -44,8 +57,13 @@ app.post('/login', async (request,response) =>{
 
 
 
-//GET http://localhost:3000/
+//use router
 app.use(authRouter);
+app.use(edukasiRouter,'/edukasi');
+app.use(foodRouter,'/food');
+app.use(healthRouter,'/health');
+app.use(hypeRouter,'/hype');
+app.use(keuanganRouter,'/keuangan');
 
 
 app.listen(3000);
