@@ -2,17 +2,21 @@ const bodyParser = require('body-parser');
 const { response } = require('express');
 const express = require('express');
 const { request } = require('http');
+const authRouter = require('./routes/auth');
+const expressLayouts = require('express-ejs-layouts')
 
-const app = express()
+const app = express();
 app.use(bodyParser.json());
-app.use(express.static('Tampilan'));
+app.use(expressLayouts);
 
-app.set('view engine','pug');
+app.set('layout', './layouts/layout');
+app.set('view engine','ejs');
 
-//GET http://localhost:3000
-app.get('/',(request, response) =>{
-    response.send('Hello World!');
-});
+app.use(express.static(__dirname + '/public'));
+app.use('/auth',express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded());
+app.use(express.static('pages'));
+
 
 //GET http://localhost:3000/about
 app.get('/about',(request,response) =>{
@@ -39,7 +43,10 @@ app.post('/login', async (request,response) =>{
 });
 
 
+
+//GET http://localhost:3000/
+app.use(authRouter);
+
+
 app.listen(3000);
 console.log('Server runs at port 3000');
-
-
