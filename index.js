@@ -1,24 +1,32 @@
-const bodyParser = require('body-parser');
-const { response } = require('express');
 const express = require('express');
-const { request } = require('http');
 const expressLayouts = require('express-ejs-layouts');
-const authRouter = require('./routes/auth');
-const edukasiRouter = require('./routers/edukasi');
-const foodRouter = require('./routers/food');
-const healthRouter = require('./routers/health');
-const hypeRouter = require('./routers/hype');
-const keuanganRouter = require('./routers/keuangan');
-
-
-
 const app = express();
-app.use(bodyParser.json());
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose')
+const { mongoURL, PORT } = require('./mongo')
+const authRouter = require('./routes/auth');
+const edukasiRouter = require('./routes/edukasi');
+const foodRouter = require('./routes/food');
+const healthRouter = require('./routes/health');
+const hypeRouter = require('./routes/hype');
+const keuanganRouter = require('./routes/keuangan');
+
+mongoose
+    .connect(mongoURL, {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+    })
+    .then(() => console.log('MongoDB database Connected...'))
+    .catch((err) => console.log(err))
+
+
+//set configuration
 app.use(expressLayouts);
-
 app.set('layout', './layouts/layout');
-app.set('view engine','ejs');
 
+//static file
 app.use(express.static(__dirname + '/public'));
 app.use('/edukasi',express.static(__dirname + '/public'));
 app.use('/food',express.static(__dirname + '/public'));
@@ -26,45 +34,16 @@ app.use('/health',express.static(__dirname + '/public'));
 app.use('/hype',express.static(__dirname + '/public'));
 app.use('/keuangan',express.static(__dirname + '/public'));
 
-
+//app.set
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(express.static('pages'));
+app.set('view engine','ejs');
+app.use(authRouter)
+app.use('/edukasi',edukasiRouter)
+app.use('/food',foodRouter)
+app.use('/health',healthRouter)
+app.use('/hype',hypeRouter)
+app.use('/keuangan',keuanganRouter)
 
-
-//GET http://localhost:3000/about
-app.get('/about',(request,response) =>{
-    response.send('About us!!!');
-});
-
-//GET http://localhost:3000/test/500
-app.get('/test/:id',(request,response) =>{
-    const data = request.params.id;
-    response.send(`Request data = ${data}`);
-});
-
-//GET http://localhost:3000/login => menampilkan form login
-app.get('/login',(request,response) =>{
-    response.send('Masukkan username dan password')
-});
-
-
-//POST http://localhost:3000/login => melakukan login, cek username dan password yang diketik user
-app.post('/login', async (request,response) =>{
-    const username = request.body.password;
-    const password = request.body.password;
-    response.send(`Request POST login: ${username} and ${passowrd}`);
-});
-
-
-
-//use router
-app.use(authRouter);
-app.use(edukasiRouter,'/edukasi');
-app.use(foodRouter,'/food');
-app.use(healthRouter,'/health');
-app.use(hypeRouter,'/hype');
-app.use(keuanganRouter,'/keuangan');
-
-
-app.listen(3000);
-console.log('Server runs at port 3000');
+app.listen(PORT, () => console.log(`App listening at http://localhost:${PORT}`))
