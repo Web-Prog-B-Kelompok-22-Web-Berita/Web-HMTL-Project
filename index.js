@@ -24,6 +24,7 @@ app.set('layout', './layouts/layout');
 //static file
 app.use(express.static(__dirname + '/public'));
 app.use('/genre',express.static(__dirname + '/public'));
+app.use('/genre/:category',express.static(__dirname + '/public'));
 //app.set
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
