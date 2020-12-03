@@ -50,7 +50,7 @@
         </style>
     <div class="container layer2" style="margin-top: 50pt; padding: 10pt;">
         <div class="container">
-            <h1 class="txtcolor">Headline</h1>
+            <h1 class="txtcolor"><%= news[1].category %></h1>
             <hr class="txtcolor" size="300px" noshade="">
             
                 <div class="col-xs-6">
@@ -105,7 +105,7 @@
             <br>
             <h3 class="txtcolor">Recomended</h3>
             <hr class="txtcolor" size="300px" noshade="">
-
+            
             <div class="container">
                 <div class="row row-cols-4" style="margin:auto;">
                     <div class="col-xs-6" style="padding-left: 5px; padding-right: 5px;">
@@ -150,75 +150,25 @@
                 <hr class="txtcolor" size="300px" noshade="">
             
             <div class="container">
+              <% for(var i=0,x=i; i < x+5; i++) { %>
+                <% if(!news[i]) { %>
+                  <% break } %>
                 <div class="card mb-3" style="max-width: auto; border: 0cm; width: 75%;">
+                  <a href="/genre/<%= news[i].category %>/<%= news[i].title %>">
                     <div class="row no-gutters">
                       <div class="col-md-4">
-                        <img src="https://asset.kompas.com/crops/Amj-sCz1SZcERn9eGWOtS5HiWnU=/0x0:917x611/750x500/data/photo/2020/08/26/5f46597d6562d.jpg" class="card-img" alt="...">
+                        <img src="<%= news[i].img %>" class="card-img" alt="...">
                       </div>
                       <div class="col-md-8 txtcolor" style="background-color: #303030;">
                         <div class="card-body">
-                          <h5 class="card-title">TITLE</h5>
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                          <h5 class="card-title"><%= news[i].title %></h5>
+                          <p class="card-text"><small class="text-muted"><%= news[i].date %></small></p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="card mb-3" style="max-width: auto; border: 0cm; width: 75%;">
-                    <div class="row no-gutters">
-                      <div class="col-md-4">
-                        <img src="https://asset.kompas.com/crops/Amj-sCz1SZcERn9eGWOtS5HiWnU=/0x0:917x611/750x500/data/photo/2020/08/26/5f46597d6562d.jpg" class="card-img" alt="...">
-                      </div>
-                      <div class="col-md-8 txtcolor" style="background-color: #303030;">
-                        <div class="card-body">
-                          <h5 class="card-title">TITLE</h5>
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-3" style="max-width: auto; border: 0cm; width: 75%;">
-                    <div class="row no-gutters">
-                      <div class="col-md-4">
-                        <img src="https://asset.kompas.com/crops/Amj-sCz1SZcERn9eGWOtS5HiWnU=/0x0:917x611/750x500/data/photo/2020/08/26/5f46597d6562d.jpg" class="card-img" alt="...">
-                      </div>
-                      <div class="col-md-8 txtcolor" style="background-color: #303030;">
-                        <div class="card-body">
-                          <h5 class="card-title">TITLE</h5>
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-3" style="max-width: auto; border: 0cm; width: 75%;">
-                    <div class="row no-gutters">
-                      <div class="col-md-4">
-                        <img src="https://asset.kompas.com/crops/Amj-sCz1SZcERn9eGWOtS5HiWnU=/0x0:917x611/750x500/data/photo/2020/08/26/5f46597d6562d.jpg" class="card-img" alt="...">
-                      </div>
-                      <div class="col-md-8 txtcolor" style="background-color: #303030;">
-                        <div class="card-body">
-                          <h5 class="card-title">TITLE</h5>
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card mb-3" style="max-width: auto; border: 0cm; width: 75%;">
-                    <div class="row no-gutters">
-                      <div class="col-md-4">
-                        <img src="https://asset.kompas.com/crops/Amj-sCz1SZcERn9eGWOtS5HiWnU=/0x0:917x611/750x500/data/photo/2020/08/26/5f46597d6562d.jpg" class="card-img" alt="...">
-                      </div>
-                      <div class="col-md-8 txtcolor" style="background-color: #303030;">
-                        <div class="card-body">
-                          <h5 class="card-title">TITLE</h5>
-                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                      </div>
-                    </div>
+                </a>
+                  <% } %>
                   </div>
                   <div class="d-flex justify-content-center">
                     <nav aria-label="...">
