@@ -5,6 +5,7 @@ const newsModel = require("../models/newsModel.js");
 const categoryList = {
     'hype' : 'Hype',
     'seleb' : 'Selebriti',
+    'film'  : 'Film'
 
 }
 
@@ -23,6 +24,13 @@ router.get("/genre/:category", async (req, res) => {
   const news = await newsModel.find({ category: newsParams });
 
   res.render("pages/Genre", {news : news, categoryName : categoryList[newsParams]});
+});
+router.get("/genre/:category/:title", async (req, res) => {
+  const titleParams = req.params.category;
+  console.log(titleParams)
+  const news = await newsModel.find({ title: titleParams });
+
+  res.render("pages/Berita", {news : news, titleName : categoryList[titleParams]});
 });
 
 router.get("/berita", async (req, res) => {
