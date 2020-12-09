@@ -63,7 +63,7 @@
                         </ol>
                         <div class="carousel-inner">
                           <div class="carousel-item active">
-                            <a href="/genre/<%= news[4].category %>/<%= news[4].title %>">
+                            <a href="/news/<%= news[4]._id %>">
                             <img src="<%= news[4].img %>" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
                               <h5 class="example4"><%= news[4].title %></h5>
@@ -72,21 +72,21 @@
                           </div>
                           
                           <div class="carousel-item">
-                            <a href="/genre/<%= news[3].category %>/<%= news[3].title %>">
+                            <a href="/news/<%= news[3]._id %>">
                               <img src="<%= news[3].img %>" class="d-block w-100" alt="...">
                               <div class="carousel-caption d-none d-md-block">
                                 <h5 class="example4"><%= news[3].title %></h5>
                               </div>
                           </div>
                           <div class="carousel-item">
-                            <a href="/genre/<%= news[2].category %>/<%= news[2].title %>">
+                            <a href="/news/<%= news[2]._id %>">
                               <img src="<%= news[2].img %>" class="d-block w-100" alt="...">
                               <div class="carousel-caption d-none d-md-block">
                                 <h5 class="example4"><%= news[2].title %></h5>
                               </div>
                           </div>
                           <div class="carousel-item">
-                            <a href="/genre/<%= news[1].category %>/<%= news[1].title %>">
+                            <a href="/news/<%= news[1]._id %>">
                               <img src="<%= news[1].img %>" class="d-block w-100" alt="...">
                               <div class="carousel-caption d-none d-md-block">
                                 <h5 class="example4"><%= news[1].title %></h5>
@@ -157,7 +157,7 @@
                 <% if(!news[i]) { %>
                   <% continue } %>
                 <div class="card mb-3" style="max-width: auto; border: 0cm; width: 75%;">
-                  <a href="/genre/<%= news[i].category %>/<%= news[i].title %>">
+                  <a href="/news/<%= news[i]._id %>">
                     <div class="row no-gutters">
                       <div class="col-md-4">
                         <img src="<%= news[i].img %>" class="card-img" alt="...">

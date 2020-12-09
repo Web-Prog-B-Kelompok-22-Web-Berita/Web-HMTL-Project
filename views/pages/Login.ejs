@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+         <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>BeritaKita - Login</title>
+        <link rel="stylesheet" href="style.css">
+         
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/login_style.css">
+
+        <script src="https://unpkg.com/feather-icons"></script>
+    </head>
+
+    <body>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        
+        <section class="container-fluid" style="padding: 2cm;">
+            <section class="row justify-content-center">
+                <section class="col-12 col-sm-6 col-md-4">
+                    
+                    <form class="form-container" action="/sign/auth"  method="POST" >
+                        <div class="form-group">
+                            <h4 class=" text-center font-weight-bold">Login</h4>
+                            <label for="username">Username</label>
+                            <input name="username" type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputPassword1">Password</label>
+                            <input name="password" type="password" class="form-control" id="Input Password1" placeholder="Password" value>
+                        </div>
+                        
+
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        <div class="form-footer">
+                            <p>Don't have an account? <a href="/sign/up">Sign Up Now</a><br>
+                            </p>
+                        </div>
+                    </form>
+                </section>
+            </section>
+        
+        
+
+        <script>
+            feather.replace()
+        </script>
+            
+        <script>
+            function myFunction() {
+                var element = document.body;
+                element.classList.toggle("dark-mode");
+            }
+        </script>
+
+
+        <style>
+            body{
+            background: #383a3d;	
+            }
+            
+            /* set form background colour*/
+            form{
+	        background: #fff;
+            }
+            /* set padding and size of th form */
+            .form-container{
+	        border-radius: 10px;
+	        padding: 30px;
+            }
+
+            .dark-mode {
+                background-color: white;
+                color: black;
+            }
+        </style>
+        
+    </body>
+</html>
