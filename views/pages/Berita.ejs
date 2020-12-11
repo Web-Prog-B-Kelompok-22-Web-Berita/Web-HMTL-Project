@@ -81,7 +81,7 @@
           <!-- Berita -->
           <% for(var n=0;n<4;n++) { %>
           <div class="col-sm" style="background-color: rgb(75, 75, 75)">
-            <a class="my-2" href="/news/<%= newsRandom._id %>">
+            <a class="my-2" href="/news/<%= newsRandom[n]._id %>">
                 <img src="<%= newsRandom[n].img %>" style="width: 100%" />
                 <p><%= newsRandom[n].title %></p>
             </a>
