@@ -3,6 +3,7 @@ require("dotenv").config();
 const userModel = require("../models/userModel");
 
 function checkAuthNext(req, res, next) {
+  req.isAuthenticated = false;
   if (req.cookies["token"]) {
     try {
       const token = req.cookies["token"];

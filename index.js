@@ -10,6 +10,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
 
+
 mongoose
     .connect(mongoURL, {
         useNewUrlParser: true,
@@ -23,7 +24,6 @@ mongoose
 
 //set configuration
 app.use(expressLayouts);
-app.set('layout', './layouts/layout');
 
 //static file
 app.use(express.static(__dirname + '/public'));
@@ -39,6 +39,7 @@ app.use('/sign', express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(express.static('pages'));
+app.set('layout', './layouts/layout');
 app.set('view engine','ejs');
 
 // Set Views

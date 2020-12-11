@@ -78,52 +78,37 @@
 
       <div class="container">
         <div class="row" style="margin: auto">
-          <!-- Berita 1 -->
+          <!-- Berita -->
+          <% for(var n=0;n<4;n++) { %>
           <div class="col-sm" style="background-color: rgb(75, 75, 75)">
-            <a class="my-2" href="Berita2.html"
-              ><img src="src/brt2.jpg" style="width: 100%" />
-              <p>Jakarta PSBB, Cianjur Dirikan Posko di 3 Titik Perbatasan</p>
+            <a class="my-2" href="/news/<%= newsRandom._id %>">
+                <img src="<%= newsRandom[n].img %>" style="width: 100%" />
+                <p><%= newsRandom[n].title %></p>
             </a>
           </div>
-
-          <!-- Berita 2 -->
-          <div class="col-sm" style="background-color: rgb(75, 75, 75)">
-            <a class="my-2" href="Berita2.html"
-              ><img src="src/brt3.jpg" style="width: 100%" />
-              <p>
-                Dampak PSBB Jakarta, Perantau yang Mudik ke Wonogiri Melonjak
-              </p>
-            </a>
-          </div>
-
-          <!-- Berita 3 -->
-          <div class="col-sm" style="background-color: rgb(75, 75, 75)">
-            <a class="my-2" href="Berita6.html"
-              ><img src="src/brt4.jpg" style="width: 100%" />
-              <p>
-                Anggota DPR: Atasi Covid-19, Kebijakan DKI dan Bodebek Harus
-                Sama
-              </p>
-            </a>
-          </div>
-
-          <!-- Berita 4 -->
-          <div class="col-sm" style="background-color: rgb(75, 75, 75)">
-            <a class="my-2" href="Berita6.html"
-              ><img src="src/brt2.jpg" style="width: 100%" />
-              <p>Jakarta PSBB, Cianjur Dirikan Posko di 3 Titik Perbatasan</p>
-            </a>
-          </div>
+          <% } %>
         </div>
       </div>
     </div>
   </div>
 
   <br /><br />
-
+  <div class="container" style="background-color : white">
+<% for(var i=news.comment.length-1;i>=0;i--) {%>
+    <div class="card text-left">
+      <div class="card-body">
+        <h4 class="card-title"><%= news.comment[i].username %></h4>
+        <p class="card-text"><%= news.comment[i].text %></p>
+        <p class="card-text"><%= moment(news.comment[i].commentDate).format( 'MMM DD , YYYY | hh:mm') %></p>
+      </div>
+    </div>
+    <% } %>
+  </div>
   <div class="comment" style="background-color: white; padding: 1cm">
     <h2 style="text-align: center"><b> Leave Us a Comment</b></h2>
-    <form>
+    <form action="/api/comment" method="POST">
+      <input type="text" name="username" value="<%= user.username %>" hidden>
+      <input type="text" name="id" value="<%= news.id %>" hidden>
       <textarea
         name="comments"
         id="comments"
@@ -133,9 +118,6 @@
         onkeydown="limitText(this,300)"
         onkeyup="limitText(this,300)"
       ></textarea>
-      <span class="comment_error" style="display: none"
-        >Kolom Komentar Masing Kosong</span
-      >
       <div class="btncmnt">
         <input
           type="Submit"
@@ -144,21 +126,8 @@
             font-weight: bold;
             cursor: pointer;
             color: #fff;
-            background-color: #273c75;
-          "
+            background-color: #273c75;"
         />
-        <button
-          type="button"
-          id="clear"
-          style="
-            font-weight: bold;
-            cursor: pointer;
-            color: #333;
-            background-color: white;
-          "
-        >
-          Cancel
-        </button>
       </div>
     </form>
   </div>

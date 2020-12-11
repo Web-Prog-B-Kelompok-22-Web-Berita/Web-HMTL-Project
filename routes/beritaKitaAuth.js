@@ -10,20 +10,22 @@ const userModel = require("../models/userModel");
 
 
 router.get('/in', auth.checkAuthNext ,async (req,res) => {
+    let logMessage = ""
     if(req.isAuthenticated) {
         res.redirect('/')
     } else {
         logMessage = req.session.logMessage
-        res.render('pages/Login')
+        res.render('pages/Login', {logMessage : logMessage, logged : req.isAuthenticated})
     }
 })
 
 router.get('/up', auth.checkAuthNext, async (req,res) => {
+    let regMessage = ""
     if(req.isAuthenticated) {
         res.redirect('/')
     } else {
         regMessage = req.session.regMessage
-        res.render('pages/SignUp')
+        res.render('pages/SignUp', {regMessage : regMessage, logged : req.isAuthenticated})
     }
 })
 
@@ -65,10 +67,10 @@ router.post("/auth", async (req, res) => {
   router.post("/register", async (req, res) => {
     try {
       const validation = await regSchema.validateAsync(req.body);
-      const usernameValidate = await user.find({username : validation.username})
+      const usernameValidate = await userModel.findOne({username : validation.username})
       if(usernameValidate) throw new Error(`username : ${validation.username} has already been taken`)
       const password = await bcrypt.hash(validation.password, 10);
-      const newUser = new user({
+      const newUser = new userModel({
         username: validation.username,
         password: password,
       });
@@ -90,5 +92,12 @@ router.post("/auth", async (req, res) => {
     username: Joi.string().min(6).max(30).required(),
     password: Joi.string().min(6).max(128).required(),
   });
+
+
+  // sign/logout
+  router.get('/logout', (req,res) => {
+    res.clearCookie("token", { path: "/" });
+    res.redirect("/");
+  })
 
 module.exports = router;

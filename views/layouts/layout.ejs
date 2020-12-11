@@ -116,13 +116,21 @@
         <button type="submit" class="icon"><i class="fas fa-search"></i></button>
       </form>
     </div>
-    <button type="button" style="margin-left: 5mm;" class="btn rounded btn-sm btn-light">
-      <a href="/sign/in">Login</a>
-    </button>
-    
-    <button type="button" style="margin-left: 5mm;" class="btn rounded btn-sm btn-light">
-      <a href="/sign/up">Register</a>
-    </button>
+      <h1><% if (!logged) { %></h1>
+        <button type="button" style="margin-left: 5mm;" class="btn rounded btn-sm btn-light">
+          <a href="/sign/in">Login</a>
+        </button>
+        
+        <button type="button" style="margin-left: 5mm;" class="btn rounded btn-sm btn-light">
+          <a href="/sign/up">Register</a>
+        </button>
+      </button>
+      <% } else { %>
+        <button type="button" style="margin-left: 5mm;" class="btn rounded btn-sm btn-light">
+          <a href="/sign/logout">Log Out</a>
+      
+      <% } %>
+
     </nav>
     <%-body%>
     <footer>
