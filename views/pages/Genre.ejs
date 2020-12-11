@@ -111,41 +111,14 @@
             
             <div class="container">
                 <div class="row row-cols-4" style="margin:auto;">
-                    <div class="col-xs-6" style="padding-left: 5px; padding-right: 5px;">
-                        <a class="cols-xs-6" href="Home.html">
-                            <img src="src/kpu.jpg" style="max-width: 100%;">
-                        </a>
-                        <a class="headline txtcolor" href="Home.html">
-                            Ketua KPU RI Arief Budiman Positif Covid-19
-                        </a>
+                  <% for(var n=0;n<4;n++) { %>
+                    <div class="col-sm" style="background-color: rgb(75, 75, 75)">
+                      <a class="my-2" href="/news/<%= newsRandom._id %>">
+                          <img src="<%= newsRandom[n].img %>" style="width: 100%" />
+                          <p><%= newsRandom[n].title %></p>
+                      </a>
                     </div>
-
-                    <div class="col-xs-6" style="padding-left: 5px; padding-right: 5px;">
-                        <a class="cols-xs-6" href="Home.html">
-                            <img src="src/kpu.jpg" style="max-width: 100%;">
-                        </a>
-                        <a class="headline txtcolor" href="Home.html">
-                            Ketua KPU RI Arief Budiman Positif Covid-19
-                        </a>
-                    </div>
-
-                    <div class="col-xs-6" style="padding-left: 5px; padding-right: 5px;">
-                        <a class="cols-xs-6" href="Home.html">
-                            <img src="src/kpu.jpg" style="max-width: 100%;">
-                        </a>
-                        <a class="headline txtcolor" href="Home.html">
-                            Ketua KPU RI Arief Budiman Positif Covid-19
-                        </a>
-                    </div>
-
-                    <div class="col-xs-6" style="padding-left: 5px; padding-right: 5px;">
-                        <a class="cols-xs-6" href="Home.html">
-                            <img src="src/kpu.jpg" style="max-width: 100%;">
-                        </a>
-                        <a class="headline txtcolor" href="Home.html">
-                            Ketua KPU RI Arief Budiman Positif Covid-19
-                        </a>
-                    </div>
+                    <% } %>
                 </div>
             </div>
                 <br>
@@ -179,9 +152,9 @@
                         <li class="page-item disabled">
                           <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link">1</a></li>
                         <li class="page-item active" aria-current="page">
-                          <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                          <a class="page-link" href="#">2</a>
                         </li>
                         <li class="page-item"><a class="page-link" href="#">3</a></li>
                         <li class="page-item">
