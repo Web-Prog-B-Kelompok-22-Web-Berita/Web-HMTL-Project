@@ -20,14 +20,8 @@ const categoryList = {
 router.get("/", auth.checkAuthNext, async (req, res) => {
   const headline = await newsModel.find({headline : true})
   const freshNews = await newsModel.find().sort({createdAt : -1})
-  newsModel.findRandom({}, {}, {limit: 4}, function(err, results) {
-    if (!err) {
-      newsRandom = results
-      console.log(newsRandom)
-    }
-  })
   console.log(req.isAuthenticated)
-  res.render("pages/Home", { logged : req.isAuthenticated, headline : headline, freshNews:freshNews, newsRandom:newsRandom, moment : moment});
+  res.render("pages/Home", { logged : req.isAuthenticated, headline : headline, freshNews:freshNews,moment : moment});
 });
 
 router.get("/genre/:category", auth.checkAuthNext, async (req, res) => {
