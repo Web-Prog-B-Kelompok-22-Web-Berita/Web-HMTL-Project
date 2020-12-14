@@ -27,7 +27,7 @@ router.get("/", auth.checkAuthNext, async (req, res) => {
   })
   console.log(freshNews)
   console.log(req.isAuthenticated)
-  res.render("pages/Home", { logged : req.isAuthenticated, headline : headline, sorotan: sorotan, freshNews:freshNews,moment : moment},);
+  res.render("pages/Home", { logged : req.isAuthenticated, headline : headline, sorotan: sorotan, freshNews:freshNews, moment : moment});
 });
 
 router.get("/genre/:category", auth.checkAuthNext, async (req, res) => {
