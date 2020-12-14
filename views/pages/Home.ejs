@@ -172,26 +172,7 @@
       <h1 class="txtcolor">Sorotan</h1>
       <hr class="txtcolor" size="300px" noshade="">
         <div class="col">
-          <div class="container">
-            <div class="row row-cols-3">
-              <% for(var i=0;i<3; i++) { %>
-                <div class="container">
-                    <a href="/news/<%= sorotan[i]._id %>">
-                      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                          <div class="col-auto d-none d-lg-block">
-                              <img src="<%= sorotan[i].img %>" style="width:auto;"class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></img>
-                          </div>
-                          <div class="col p-4 d-flex flex-column position-static">
-                              <strong class="d-inline-block mb-2 text-primary"><%= sorotan[i].category %></strong>
-                              <h3 class="mb-0 txtcolor"><%= sorotan[i].title %></h3>
-                              <div class="mb-1 text-muted"><%= moment(sorotan[i].createdAt).format( 'Do MMMM, YYYY'); %></div>
-                          </div>
-                      </div>
-                    </a>
-                </div>
-                <% } %>
-            </div>
-          </div>
+          
         </div>
         
         <br><br>
