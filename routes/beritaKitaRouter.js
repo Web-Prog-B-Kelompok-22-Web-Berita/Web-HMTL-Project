@@ -9,6 +9,9 @@ const categoryList = {
   hype: "Hype",
   seleb: "Selebriti",
   film: "Film",
+  health: "Health",
+  resep: "Resep",
+  foodnews: "Food-News"
 };
 
 // hype : hype
@@ -16,26 +19,32 @@ const categoryList = {
 
 router.get("/", auth.checkAuthNext, async (req, res) => {
   const headline = await newsModel.find({headline : true})
+  const freshNews = await newsModel.find().sort({createdAt : -1})
   newsModel.findRandom({}, {}, {limit: 5}, function(err, results) {
     if (!err) {
-      newsRandom = results
+      sorotan = results
     }
-  });
-  const freshNews = await newsModel.find().limit(4).sort({createdAt : -1})
+  })
   console.log(freshNews)
   console.log(req.isAuthenticated)
-  res.render("pages/Home", { logged : req.isAuthenticated});
+  res.render("pages/Home", { logged : req.isAuthenticated, headline : headline, sorotan: sorotan, freshNews:freshNews,moment : moment},);
 });
 
 router.get("/genre/:category", auth.checkAuthNext, async (req, res) => {
   const newsParams = req.params.category;
   console.log(newsParams);
   const news = await newsModel.find({ category: newsParams });
+  newsModel.findRandom({}, {}, {limit: 4}, function(err, results) {
+    if (!err) {
+      newsRandom = results
+    }
+  })
 
   res.render("pages/Genre", {
     news: news,
     categoryName: categoryList[newsParams],
-    logged : req.isAuthenticated
+    logged : req.isAuthenticated,
+    newsRandom : newsRandom
   });
 });
 

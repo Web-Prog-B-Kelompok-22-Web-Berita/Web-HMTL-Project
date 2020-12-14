@@ -113,7 +113,7 @@
                 <div class="row row-cols-4" style="margin:auto;">
                   <% for(var n=0;n<4;n++) { %>
                     <div class="col-sm" style="background-color: rgb(75, 75, 75)">
-                      <a class="my-2" href="/news/<%= newsRandom._id %>">
+                      <a class="my-2" href="/news/<%= newsRandom[n]._id %>">
                           <img src="<%= newsRandom[n].img %>" style="width: 100%" />
                           <p><%= newsRandom[n].title %></p>
                       </a>
@@ -126,7 +126,7 @@
                 <hr class="txtcolor" size="300px" noshade="">
             
             <div class="container">
-              <% for(var i=news.length,x=i; i > x-6; i--) { %>
+              <% for(var i=news.length; i >= 0; i--) { %>
                 <% if(!news[i]) { %>
                   <% continue } %>
                 <div class="card mb-3" style="max-width: auto; border: 0cm; width: 75%;">
@@ -145,23 +145,6 @@
                   </div>
                 </a>
                   <% } %>
-                  </div>
-                  <div class="d-flex justify-content-center">
-                    <nav aria-label="...">
-                      <ul class="pagination">
-                        <li class="page-item disabled">
-                          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link">1</a></li>
-                        <li class="page-item active" aria-current="page">
-                          <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">Next</a>
-                        </li>
-                      </ul>
-                    </nav>
                   </div>
             </div>
         </div>

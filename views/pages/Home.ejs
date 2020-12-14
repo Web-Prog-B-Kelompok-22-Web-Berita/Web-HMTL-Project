@@ -24,12 +24,10 @@
     .dropdown-item {
       color: black
     }
-
     .navbar a:hover,
     .nav-item:hover {
       background-color: grey;
     }
-
     .dropdown-menu a:hover {
       background-color: grey;
     }
@@ -42,11 +40,9 @@
     p.headline {
     font-size: 12pt;
     }
-
     .txtcolor {
     color: white;
     }
-
     .example4 {
     color: white;
     text-shadow: -1px 1px 0 #000,
@@ -61,7 +57,6 @@
       color: whitesmoke;
       text-align: center;
     }
-
   .topnav a {
       color: grey;
       padding: 5px 5px;
@@ -92,42 +87,27 @@
               </ol>
 
               <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <a href="Berita1.html">
-                    <img src="src/brt.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5 class="example4">Sampai 1.700 Kasus, Klaster Keluarga di Banten Dominasi 
-                        Jumlah Positif Covid-19</h5>
+                <% for(var i=0;i<4; i++) { %>
+                  <% if(i==0) { %>
+                  <div class="carousel-item active">
+                    <a href="/news/<%= headline[i]._id %>">
+                      <img src="<%= headline[i].img %>" class="d-block w-100" alt="...">
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5 class="example4"><%= headline[i].title %></h5>
+                      </div>
+                    </a>
+                  </div>
+                  <% } else { %>
+                    <div class="carousel-item">
+                      <a href="/news/<%= headline[i]._id %>">
+                        <img src="<%= headline[i].img %>" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <h5 class="example4"><%= headline[i].title %></h5>
+                        </div>
+                      </a>
                     </div>
-                  </a>
-                </div>
-
-                <div class="carousel-item">
-                  <a href="Berita2.html">
-                    <img src="src/brt2.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5 class="example4">Jakarta PSBB, Cianjur Dirikan Posko di 3 Titik Perbatasan</h5>
-                    </div>
-                  </a>
-                </div>
-
-                <div class="carousel-item">
-                  <a href="Berita3.html">
-                    <img src="src/brt3.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5 class="example4">Akhir Pelarian Cai Changpan, Kabur lewat Gorong-gorong Lapas Tangerang kemudian Bunuh Diri di Hutan</h5>
-                    </div>
-                  </a>
-                </div>
-
-                <div class="carousel-item">
-                  <a href="Berita4.html">
-                    <img src="src/brt4.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5 class="example4">Dampak Pemanasan Global, Suhu Laut Terdalam Mulai Menghangat</h5>
-                    </div>
-                  </a>
-                </div>
+                    <% } %>
+              <% } %>
               </div>
             
               <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
@@ -142,42 +122,45 @@
           
           
             <div class="row row-cols-4" style="margin:auto; background-color: black; ">
+              <% for(var i=0;i<4; i++) { %>
+                <% if(i==0) { %>
               <div class="col-xs-6" type="button">
                 <a class="cols-xs-6" id="myBtn1">
-                  <img src="src/brt.jpg" style="max-width: 100%;">
+                  <img src="<%= headline[i].img %>" style="max-width: 100%;">
                 </a>
-                <a class="headline txtcolor" href="Berita1.html">
-                  Sampai 1.700 Kasus, Klaster Keluarga di Banten Dominasi 
-                        Jumlah Positif Covid-19
-                </a>
-              </div>
-
-              <div class="col-xs-6" type="button">
-                <a class="" id="myBtn2">
-                  <img src="src/brt2.jpg" style="max-width: 100%;">
-                </a>
-                <a class="headline txtcolor" href="Berita2.html">
-                  Jakarta PSBB, Cianjur Dirikan Posko di 3 Titik Perbatasan
+                <a class="headline txtcolor" href="/news/<%= headline[i]._id %>">
+                  <%= headline[i].title %>
                 </a>
               </div>
-              
-              <div class="col-xs-6" type="button">
-                <a class="" id="myBtn3">
-                  <img src="src/brt3.jpg" style="max-width: 100%;">
-                </a>
-                <a class="headline txtcolor" href="Berita3.html">
-                  Akhir Pelarian Cai Changpan, Kabur lewat Gorong-gorong Lapas Tangerang kemudian Bunuh Diri di Hutan
-                </a>
-              </div>
-              
-              <div class="col-xs-6" type="button">
-                <a class="headline txtcolor" id="myBtn4">
-                  <img src="src/brt4.jpg" style="max-width: 100%;">
-                </a>
-                <a class="headline txtcolor" href="Berita4.html">
-                  Dampak Pemanasan Global, Suhu Laut Terdalam Mulai Menghangat
-                </a>
-              </div>
+              <% } else if(i==1) { %>
+                <div class="col-xs-6" type="button">
+                  <a class="" id="myBtn2">
+                    <img src="<%= headline[i].img %>" style="max-width: 100%;">
+                  </a>
+                  <a class="headline txtcolor" href="/news/<%= headline[i]._id %>">
+                    <%= headline[i].title %>
+                  </a>
+                </div>
+              <% } else if(i==2) { %>
+                <div class="col-xs-6" type="button">
+                  <a class="" id="myBtn3">
+                    <img src="<%= headline[i].img %>" style="max-width: 100%;">
+                  </a>
+                  <a class="headline txtcolor" href="/news/<%= headline[i]._id %>">
+                    <%= headline[i].title %>
+                  </a>
+                </div>
+                <% } else if(i==3) { %>
+                  <div class="col-xs-6" type="button">
+                    <a class="headline txtcolor" id="myBtn4">
+                      <img src="<%= headline[i].img %>" style="max-width: 100%;">
+                    </a>
+                    <a class="headline txtcolor" href="/news/<%= headline[i]._id %>">
+                      <%= headline[i].title %>
+                    </a>
+                  </div>
+                  <% } %>
+              <% } %>
             </div>
         </div>
       </div>
@@ -189,76 +172,40 @@
       <h1 class="txtcolor">Sorotan</h1>
       <hr class="txtcolor" size="300px" noshade="">
         <div class="col">
+          <div class="container">
             <div class="row row-cols-3">
+              <% for(var i=0;i<3; i++) { %>
                 <div class="container">
-                    <a href="Home.html">
+                    <a href="/news/<%= sorotan[i]._id %>">
                       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                           <div class="col-auto d-none d-lg-block">
-                              <img src="src/bambang.jpg" style="width:auto;"class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></img>
+                              <img src="<%= sorotan[i].img %>" style="width:auto;"class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></img>
                           </div>
                           <div class="col p-4 d-flex flex-column position-static">
-                              <strong class="d-inline-block mb-2 text-primary">World</strong>
-                              <h3 class="mb-0 txtcolor">Ini Alasan Menkeu Cegah Bambang Trihatmodjo ke Luar Negeri</h3>
-                              <div class="mb-1 text-muted">Nov 12</div>
+                              <strong class="d-inline-block mb-2 text-primary"><%= sorotan[i].category %></strong>
+                              <h3 class="mb-0 txtcolor"><%= sorotan[i].title %></h3>
+                              <div class="mb-1 text-muted"><%= moment(sorotan[i].createdAt).format( 'Do MMMM, YYYY'); %></div>
                           </div>
                       </div>
                     </a>
                 </div>
-
-                <div class="container">
-                    <a href="Home.html">
-                        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                            <div class="col-auto d-none d-lg-block">
-                                <img src="src/bambang.jpg" style="width:auto;"class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></img>
-                            </div>
-                            <div class="col p-4 d-flex flex-column position-static">
-                                <strong class="d-inline-block mb-2 text-primary">World</strong>
-                                <h3 class="mb-0 txtcolor">Ini Alasan Menkeu Cegah Bambang Trihatmodjo ke Luar Negeri</h3>
-                                <div class="mb-1 text-muted">Nov 12</div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="container">
-                    <a href="Home.html">
-                        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                            <div class="col-auto d-none d-lg-block">
-                                <img src="src/bambang.jpg" style="width:auto;"class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></img>
-                            </div>
-                            <div class="col p-4 d-flex flex-column position-static">
-                                <strong class="d-inline-block mb-2 text-primary">World</strong>
-                                <h3 class="mb-0 txtcolor">Ini Alasan Menkeu Cegah Bambang Trihatmodjo ke Luar Negeri</h3>
-                                <div class="mb-1 text-muted">Nov 12</div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                <% } %>
             </div>
-
             <div class="row row-cols-2" style="margin:auto;">
-              <div class="col-xs-6" style="padding-left: 5px; padding-right: 5px;">
-                  <a class="cols-xs-6" href="Home.html">
-                      <img src="src/kpu.jpg" style="max-width: 100%;">
+              <% for(var i=3;i<5; i++) { %>
+                <div class="col-xs-6" style="padding-left: 5px; padding-right: 5px;">
+                  <a class="cols-xs-6" href="/news/<%= sorotan[i]._id %>">
+                      <img src="<%= sorotan[i].img %>" style="max-width: 100%;">
                   </a>
                   <h4>
-                    <a class="headline txtcolor" href="Home.html">
-                        Ketua KPU RI Arief Budiman Positif Covid-19
+                    <a class="headline txtcolor" href="/news/<%= sorotan[i]._id %>">
+                      <%= sorotan[i].title %>
                     </a>
                   </h4>
               </div>
-    
-              <div class="col-xs-6" style="padding-left: 5px; padding-right: 5px;">
-                  <a class="cols-xs-6" href="Home.html">
-                      <img src="src/kpu.jpg" style="max-width: 100%;">
-                  </a>
-                  <h4>
-                  <a class="headline txtcolor" href="Home.html">
-                      Ketua KPU RI Arief Budiman Positif Covid-19
-                  </a>
-              </div>
+              <% } %>
             </div>
-
+          </div>
         </div>
         
         <br><br>
@@ -267,98 +214,28 @@
         <hr size="300px" noshade="">
 
         <div class="container">
-          <a href="Home.html">
+          <% for(var i=0;i<5 ;i++) { %>
+          <a href="/news/<%= freshNews[i]._id %>">
             <div
               class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
               <div class="col-auto d-none d-lg-block">
-                <img src="src/bambang.jpg" style="width:auto;" class="bd-placeholder-img" width="200" height="250"
+                <img src="<%= freshNews[i].img %>" style="width:auto;" class="bd-placeholder-img" width="200" height="250"
                   xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
                   aria-label="Placeholder: Thumbnail">
                 <title>Placeholder</title>
                 <rect width="100%" height="100%" fill="#55595c"></img>
               </div>
               <div class="col p-4 d-flex flex-column position-static">
-                <strong class="d-inline-block mb-2 text-primary">World</strong>
-                <h3 class="mb-0 txtcolor">Ini Alasan Menkeu Cegah Bambang Trihatmodjo ke Luar Negeri</h3>
-                <div class="mb-1 text-muted">Nov 12</div>
+                <strong class="d-inline-block mb-2 text-primary"><%= freshNews[i].category %></strong>
+                <h3 class="mb-0 txtcolor"><%= freshNews[i].title %></h3>
+                <div class="mb-1 text-muted"><%= moment(freshNews[i].createdAt).format( 'Do MMMM, YYYY'); %></div>
               </div>
             </div>
           </a>
-          <a href="Home.html">
-            <div
-              class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-              <div class="col-auto d-none d-lg-block">
-                <img src="src/bambang.jpg" style="width:auto;" class="bd-placeholder-img" width="200" height="250"
-                  xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
-                  aria-label="Placeholder: Thumbnail">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c"></img>
-              </div>
-              <div class="col p-4 d-flex flex-column position-static">
-                <strong class="d-inline-block mb-2 text-primary">World</strong>
-                <h3 class="mb-0 txtcolor">Ini Alasan Menkeu Cegah Bambang Trihatmodjo ke Luar Negeri</h3>
-                <div class="mb-1 text-muted">Nov 12</div>
-              </div>
-            </div>
-          </a>
+          <% } %>
         </div>
 
         <br><br>
-
-        <div style="margin-left: 2cm; margin-right: 2cm;">
-          <div class="title_content">
-            <h1 class="txtcolor" class="form-inline">Jelajahi Juga</h1>
-            <hr class="txtcolor" size="300px" noshade="">
-          </div>
-      
-          <div class="row row-cols-5 clearfix " style="justify-content: center;">
-            <div class="row row-cols-2">
-              <ul style="width:auto" class="discover_menu">
-                <a href=""> Modifikasi</a>
-                <a href=""> Petualangan</a>
-                <a href=""> Cerita</a>
-                <a href=""> Hiburan</a>
-                <a href="">Hidangan</a>
-              </ul>
-            </div>
-  
-            <div class="row row-cols-2">
-              <ul style="width:auto" class="discover_menu">
-                <a href=""> Modifikasi</a>
-                <a href=""> Petualangan</a>
-                <a href=""> Cerita</a>
-                <a href=""> Hiburan</a>
-              </ul>
-            </div>
-  
-            <div class="row row-cols-2">
-              <ul style="width:auto" class="discover_menu">
-                <a href=""> Modifikasi</a>
-                <a href=""> Petualangan</a>
-                <a href=""> Cerita Pendek</a>
-                <a href=""> Hiburan</a>
-              </ul>
-            </div>
-
-            <div class="row row-cols-2">
-              <ul style="width:auto" class="discover_menu">
-                <a href=""> Modifikasi</a>
-                <a href=""> Petualangan</a>
-                <a href=""> Cerita Pendek</a>
-                <a href=""> Hiburan</a>
-              </ul>
-            </div>
-
-            <div class="row row-cols-2">
-              <ul style="width:auto" class="discover_menu">
-                <a href=""> Modifikasi</a>
-                <a href=""> Petualangan</a>
-                <a href=""> Cerita Pendek</a>
-                <a href=""> Hiburan</a>
-                <a href="">Ilustrasi</a>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
     </div>
